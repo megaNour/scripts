@@ -1,0 +1,1 @@
+Pour rendre des scripts accessibles depuis n'importe ou, voir dans le fichier ~/.profile
