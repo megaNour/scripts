@@ -34,3 +34,7 @@ xsetwacom set "$intuosStylus" Mode Absolute
 xsetwacom set "$intuosEraser" rotate half
 xsetwacom set "$intuosEraser" MapToOutput 'DVI-1'
 xsetwacom set "$intuosEraser" Mode Absolute
+
+xsetwacom set "$intuosTouch" rotate half
+xsetwacom set "$intuosTouch" MapToOutput 'DVI-1'
+xsetwacom set "$intuosTouch" Mode Absolute

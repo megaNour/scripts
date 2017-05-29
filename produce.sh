@@ -15,7 +15,14 @@ if [ -z "$1" ];
         echo "filename: $fileName"
         unzip "$base.kra" mergedimage.png;
         mv mergedimage.png "$base.png"
-        convert "$base.png" -resize 990x1400  "$base.jpg"
+        
+        if [ -z "$2" ]
+            then
+            convert "$base.png" -resize 800  "$base.jpg"
+            else
+            convert "$base.png" -resize $2  "$base.jpg"
+        fi
+
         mkdir ../jpg 2>/dev/null
         mkdir ../png 2>/dev/null
         mv "$base.png" ../png/
