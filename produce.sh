@@ -10,9 +10,11 @@ if [ -z "$1" ];
         "
     else
         echo "#################### $1 ####################"
-        fileName=$(find -printf "%f\n" | grep -P ".*(?<![1-9])$1\.kra$")
+        fileName=$(ls | grep -P ".*(?<![1-9])$1\.kra$")
+        echo "filename: $fileName"        
         base=$(echo $fileName | grep -o -P ".*(?=\.kra$)")
-        echo "filename: $fileName"
+        echo "base: $base"
+        
         unzip "$base.kra" mergedimage.png;
         mv mergedimage.png "$base.png"
         
