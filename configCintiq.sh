@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export cintiqStylus='Wacom Cintiq 24HD stylus'
+export cintiqStylus='Wacom Cintiq 24HD Pen stylus'
 export cintiqPad='Wacom Cintiq 24HD Pad pad' 
-export cintiqEraser='Wacom Cintiq 24HD eraser'
+export cintiqEraser='Wacom Cintiq 24HD Pen eraser'
 
 #xsetwacom get "$cintiqStylus" Area
 #xinput_calibrator --device "$cintiqStylus"
