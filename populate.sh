@@ -1,17 +1,20 @@
+cd ..
+chapter=$(echo ${PWD##} | grep -P '\d+$' -o)
+cd - > /dev/null
 if [ -z $1 ]
 then
-   cd ..
-   number=$(echo ${PWD##} | grep -P '\d+$' -o)
-   cd kra
+    number=10
 else
    number=$1
 fi
-for i in `seq 1 20`;
+ext=$(echo ${PWD##*/})
+for i in `seq 1 $number`;
 do 
     if [ $i -lt 10 ] 
         then
-            cp -n vierge.kra "waste_c"$number"_p0$i.kra"; 
+            cp -n ../../generic/$ext/vierge.$ext "waste_c"$chapter"_p0$i.$ext"; 
         else
-            cp -n vierge.kra "waste_c"$number"_p$i.kra";
+            cp -n ../../generic/$ext/vierge.$ext "waste_c"$chapter"_p$i.$ext";
     fi
 done
+
