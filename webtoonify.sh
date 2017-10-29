@@ -7,5 +7,5 @@ convert -density 300 -crop 3036x4725+236+236 -resize 800 $name ../release/$name.
 cd ../release
 bash ~/Documents/scripts/beautify.sh
 cd ../scribus
-#rm *.pdf
+rm *.pdf
 
