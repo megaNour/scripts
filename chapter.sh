@@ -2,6 +2,13 @@ if [ -z "$1" ];
 then
     echo "need to specify chapter number"
     else
+        if [ -z "$2" ];
+            then
+                pageNum=14
+                echo "Default number of pages will be used: $pageNum"
+            else
+                pageNum=$2
+        fi
         let lastChapter="$1 - 1"
         mkdir -p chapitre_$1
         cd chapitre_$1
@@ -17,9 +24,9 @@ then
         mkdir -p svg/png
         cd ..
         cd chapitre_$1/kra
-        sh /home/b/Documents/scripts/populate.sh $2
+        sh /home/b/Documents/scripts/populate.sh $pageNum
         cd ../svg
-        sh /home/b/Documents/scripts/populate.sh $2
+        sh /home/b/Documents/scripts/populate.sh $pageNum
         cd ../..
         cp -n chapitre_$lastChapter/scribus/chapitre_$lastChapter.sla chapitre_$1/scribus/chapitre_$1.sla
         cp -n generic/svg/png/vierge.png chapitre_$1/svg/png/vierge.png
