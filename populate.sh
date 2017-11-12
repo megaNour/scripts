@@ -3,7 +3,7 @@ chapter=$(echo ${PWD##} | grep -P '\d+$' -o)
 cd - > /dev/null
 if [ -z $1 ]
 then
-    number=10
+    number=14
 else
    number=$1
 fi
