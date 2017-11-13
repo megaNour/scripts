@@ -24,9 +24,9 @@ then
         mkdir -p svg/png
         cd ..
         cd chapitre_$1/kra
-        sh /home/b/Documents/scripts/populate.sh $pageNum
+        exec populate.sh $pageNum
         cd ../svg
-        sh /home/b/Documents/scripts/populate.sh $pageNum
+        exec populate.sh $pageNum
         cd ../..
         cp -n chapitre_$lastChapter/scribus/chapitre_$lastChapter.sla chapitre_$1/scribus/chapitre_$1.sla
         cp -n generic/svg/png/vierge.png chapitre_$1/svg/png/vierge.png
