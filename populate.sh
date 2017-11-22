@@ -10,7 +10,7 @@ fi
 ext=$(echo ${PWD##*/})
 for i in `seq 1 $number`;
 do 
-    if [ $i -lt 10 ] 
+    if [ $i -lt 10 ]     
         then
             cp -n ../../generic/$ext/vierge.$ext "waste_c"$chapter"_p0$i.$ext"; 
         else
