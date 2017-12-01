@@ -29,9 +29,12 @@ else
     find . -regex ".*\.kra" -printf "%f\n"|
     while read fileName; 
     do	  
-    fileName=$(echo $fileName | grep -o -P '[1-9]+[0-9]*(?=\.kra$)')
-        echo "#######    produce.sh $fileName $1"
-    produce.sh $fileName $1
+        fileName=$(echo $fileName | grep -o -P '[1-9]+[0-9]*(?=\.kra$)')
+        #echo "#######    produce.sh $fileName $1"
+        if [[ ! -z $fileName ]]; 
+then 
+produce.sh $fileName $1 &
+fi
     done
 fi
 

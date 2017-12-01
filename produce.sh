@@ -20,6 +20,7 @@ fi
 
 for var in $@;
 do
+    echo $var " looping"
     if [[ $var != "w"* ]]
     then
         if [[ $var == *"-"* ]]
@@ -27,25 +28,32 @@ do
             echo "batching on $var"
             (exec batchKrita.sh $var "w$size")
         else
-            echo "#################### $var ####################"
+            #echo "#################### $var ####################"
+
+            mkdir "../jpg" 2>/dev/null
+            mkdir "../png" 2>/dev/null            
+
             fileName=$(ls | grep -P ".*(?<![1-9])$var\.kra$")
             echo "filename: $fileName"        
             base=$(echo $fileName | grep -o -P ".*(?=\.kra$)")
             echo "base: $base"
-                        unzip "$base.kra" mergedimage.png;
-            mv mergedimage.png "$base.png"
-            
+            unzip "$base.kra" mergedimage.png -d $base
+            cd $base
+
             if [[ -z "$size" ]]
                 then
-                convert "$base.png" -resize 800  "$base.jpg"
+                convert mergedimage.png -resize 800  "$base.jpg"
                 else
-                convert "$base.png" -resize $size  "$base.jpg"
+                convert mergedimage.png -resize $size  "$base.jpg"
             fi
 
-            mkdir ../jpg 2>/dev/null
-            mkdir ../png 2>/dev/null
-            mv "$base.png" ../png/
-            mv "$base.jpg" ../jpg/
+            mv mergedimage.png "../../png/$base.png"
+            mv "$base.jpg" "../../jpg/"
+            
+            cd ../
+            rm -r $base
+            
+            
         fi
     else
         if [[ $# -eq 1 ]]
