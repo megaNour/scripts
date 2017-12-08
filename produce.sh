@@ -37,8 +37,8 @@ do
             echo "filename: $fileName"        
             base=$(echo $fileName | grep -o -P ".*(?=\.kra$)")
             echo "base: $base"
-            unzip "$base.kra" mergedimage.png -d $base
-            cd $base
+            unzip "$base.kra" mergedimage.png #-d $base
+            #cd $base
 
             if [[ -z "$size" ]]
                 then
@@ -47,8 +47,8 @@ do
                 convert mergedimage.png -resize $size  "$base.jpg"
             fi
 
-            mv mergedimage.png "../../png/$base.png"
-            mv "$base.jpg" "../../jpg/"
+            mv mergedimage.png "../png/$base.png"
+            mv "$base.jpg" "../jpg/"
             
             cd ../
             rm -r $base

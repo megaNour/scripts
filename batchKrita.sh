@@ -33,7 +33,7 @@ else
         #echo "#######    produce.sh $fileName $1"
         if [[ ! -z $fileName ]]; 
 then 
-produce.sh $fileName $1 &
+produce.sh $fileName $1
 fi
     done
 fi
