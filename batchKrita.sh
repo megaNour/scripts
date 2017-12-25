@@ -13,28 +13,28 @@ if [[ ! -z "$1" ]] &&  [[ "$1" != "w"* ]];
 fi
 
 if [ $continue -eq 1 ]
-then
-    find . -regex ".*[1-9][0-9]?\.kra" -printf "%f\n" | 
-    while read fileName; 
-    do	
-        fileName=$(echo $fileName | grep -o -P "[1-9]+[0-9]*(?=\.kra$)")
-        if [ $fileName -ge $low ] && [ $fileName -le $high ];
-            then 
-             echo "then produce.sh $fileName $2"
-             produce.sh $fileName $2
-        fi
-    done
+    then
+        find . -regex ".*[1-9][0-9]?\.kra" -printf "%f\n" -maxdepth 1 | 
+        while read fileName; 
+        do	
+            fileName=$(echo $fileName | grep -o -P "[1-9]+[0-9]*(?=\.kra$)")
+            if [ $fileName -ge $low ] && [ $fileName -le $high ];
+                then 
+                 echo "then produce.sh $fileName $2"
+                 produce.sh $fileName $2
+            fi
+        done
 else
     echo "else all"
-    find . -regex ".*\.kra" -printf "%f\n"|
+    find . -regex ".*\.kra" -printf "%f\n" -maxdepth 1 |
     while read fileName; 
     do	  
         fileName=$(echo $fileName | grep -o -P '[1-9]+[0-9]*(?=\.kra$)')
         #echo "#######    produce.sh $fileName $1"
         if [[ ! -z $fileName ]]; 
-then 
-produce.sh $fileName $1
-fi
+        then 
+            produce.sh $fileName $1
+        fi
     done
 fi
 

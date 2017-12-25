@@ -21,17 +21,17 @@ then
         #mkdir -p script
         #mkdir -p storyboard
         mkdir -p release
-        mkdir -p svg/png
+        #mkdir -p svg/png
         cd ..
         cd chapitre_$1/kra
         exec populate.sh $pageNum &
-        cd ../svg
-        exec populate.sh $pageNum &
+        #cd ../svg
+        #exec populate.sh $pageNum &
         cd ../..
         cp -n chapitre_$lastChapter/scribus/chapitre_$lastChapter.sla chapitre_$1/scribus/chapitre_$1.sla
         perl -pi -e "s/_c$lastChapter/_c$1/" chapitre_$1/scribus/chapitre_$1.sla
         perl -pi -e "s/chapter $lastChapter/chapter $1/i" chapitre_$1/scribus/chapitre_$1.sla
-        cp -n generic/svg/png/vierge.png chapitre_$1/svg/png/vierge.png
+        #cp -n generic/svg/png/vierge.png chapitre_$1/svg/png/vierge.png
         if [ ! -L /home/b/Pictures/chapitre_$1 ]; then                
         ln -s "$PWD"/chapitre_$1 /home/b/Pictures
         fi

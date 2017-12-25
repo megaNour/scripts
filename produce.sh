@@ -51,14 +51,14 @@ do
             mv "$base.jpg" "../jpg/"
             
             cd ../
-            rm -r $base
+            #rm -r $base
             
             
         fi
     else
         if [[ $# -eq 1 ]]
         then
-                exec batchKrita.sh $var
+            exec batchKrita.sh $var
         fi
     fi
 done
