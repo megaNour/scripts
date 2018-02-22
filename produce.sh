@@ -21,6 +21,7 @@ fi
 for var in $@;
 do
     echo $var " looping"
+    #if not a width parameter : w950 for example
     if [[ $var != "w"* ]]
     then
         if [[ $var == *"-"* ]]
@@ -33,9 +34,9 @@ do
             mkdir "../jpg" 2>/dev/null
             mkdir "../png" 2>/dev/null            
 
-            fileName=$(ls | grep -P ".*(?<![1-9])$var\.kra$")
+            fileName=$(ls | grep -P ".*[^1-9]$var\.kra$")
             echo "filename: $fileName"        
-            base=$(echo $fileName | grep -o -P ".*(?=\.kra$)")
+            base=${fileName%.kra}
             echo "base: $base"
             unzip "$base.kra" mergedimage.png #-d $base
             #cd $base
@@ -50,10 +51,8 @@ do
             mv mergedimage.png "../png/$base.png"
             mv "$base.jpg" "../jpg/"
             
-            cd ../
+            cd ../kra
             #rm -r $base
-            
-            
         fi
     else
         if [[ $# -eq 1 ]]

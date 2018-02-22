@@ -28,13 +28,13 @@ xsetwacom set "$intuosPad" abswheeldown	0 #touch ring down
 #xsetwacom set "$intuosPad" button 7 0 #??
 
 xsetwacom set "$intuosStylus" rotate half
-xsetwacom set "$intuosStylus" MapToOutput 'DVI-1'
+xsetwacom set "$intuosStylus" MapToOutput 'DVI-0'
 xsetwacom set "$intuosStylus" Mode Absolute
 
 xsetwacom set "$intuosEraser" rotate half
-xsetwacom set "$intuosEraser" MapToOutput 'DVI-1'
+xsetwacom set "$intuosEraser" MapToOutput 'DVI-0'
 xsetwacom set "$intuosEraser" Mode Absolute
 
 xsetwacom set "$intuosTouch" rotate half
-xsetwacom set "$intuosTouch" MapToOutput 'DVI-1'
+xsetwacom set "$intuosTouch" MapToOutput 'DVI-0'
 xsetwacom set "$intuosTouch" Mode Absolute
