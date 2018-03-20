@@ -5,9 +5,9 @@ for image in *.kra; do
  echo $fileName
 unzip "$fileName.kra" mergedimage.png #-d $base
 convert -density 300 -crop $sizeFormula mergedimage.png -resize 800 $fileName.jpg
-rm mergedimage.png
- #echo "${image%%.*}"
-done
-'
+mv mergedimage.png $fileName.png
 
-#convert -density 300 -crop 3036x4725+236+236 -resize 800 *.kra *.jpg
+done
+
+
+
