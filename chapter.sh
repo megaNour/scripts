@@ -40,7 +40,7 @@ then
         #cd ../svg
         #exec populate.sh $pageNum &
         cd ../..
-        cp -n "/home/b/Pictures/Images WASTE/Manga/generic/scribus/generique.sla" chapitre_"$chapterTitle"/scribus/chapitre_$1.sla
+        cp -n "/home/b/Pictures/images/WASTE/Manga/generic/scribus/generique.sla" chapitre_"$chapterTitle"/scribus/chapitre_$1.sla
         perl -pi -e "s/_c$lastChapter/_c$1/" chapitre_"$chapterTitle"/scribus/chapitre_$1.sla
         perl -pi -e "s/chapter $lastChapter/chapter $1/i" chapitre_"$chapterTitle"/scribus/chapitre_$1.sla
         #cp -n generic/svg/png/vierge.png chapitre_$1/svg/png/vierge.png

@@ -18,9 +18,9 @@ for i in `seq 1 $number`;
 do 
     if [ $i -lt 10 ]     
         then
-            cp -n "/home/b/Pictures/Images WASTE/Manga/generic/$ext/vierge.$ext" "$seriesName""_c"$chapter"_p0$i.$ext"; 
+            cp -n "/home/b/Pictures/images/WASTE/Manga/generic/$ext/vierge.$ext" "$seriesName""_c"$chapter"_p0$i.$ext"; 
         else
-            cp -n "/home/b/Pictures/Images WASTE/Manga/generic/$ext/vierge.$ext" "$seriesName""_c"$chapter"_p$i.$ext";
+            cp -n "/home/b/Pictures/images/WASTE/Manga/generic/$ext/vierge.$ext" "$seriesName""_c"$chapter"_p$i.$ext";
     fi
 done
 
