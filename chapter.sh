@@ -2,10 +2,7 @@ if [ -z "$1" ];
 then
     echo "need to specify chapter number"
     else
-        chapterNum=$1
-        while [ ${#chapterNum} -lt 3 ]; do
-            chapterNum="0$chapterNum"
-        done
+        chapterNum=$(addLeadingZeroes.sh $1 3)
         if [ "$2" -eq "$2" ] 2>/dev/null ; then
             pageNum="$2"
         else
