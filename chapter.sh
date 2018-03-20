@@ -2,20 +2,20 @@ if [ -z "$1" ];
 then
     echo "need to specify chapter number"
     else
-        if [ -z "$2" ]; then
-                pageNum=14
-                echo "Default number of pages will be used: $pageNum"
-        elif [ "$2" -eq "$2" ] 2>/dev/null; then
-                pageNum="$2"
-               echo "elif of course $pageNum"
+        chapterNum=$1
+        while [ ${#chapterNum} -lt 3 ]; do
+            chapterNum="0$chapterNum"
+        done
+        if [ "$2" -eq "$2" ] 2>/dev/null ; then
+            pageNum="$2"
         else
-               chapterTitle="$1_$2"                
-               echo "chapter title concatenated $chapterTitle"
+            chapterTitle="$chapterNum"_"$2"                
+            echo "chapter title concatenated $chapterTitle"
+            pageNum=14
+            echo "Default number of pages will be used: $pageNum"
         fi
-
         if ! [ -z "$3" ]; then
-                chapterTitle="$1_$3"
-                echo "Title of the chapter will be: $3"
+                chapterTitle="$chapterNum"_"$3"
         fi
         let lastChapter="$1 - 1"
         mkdir -p chapitre_"$chapterTitle"
@@ -26,17 +26,17 @@ then
         mkdir -p text
         mkdir -p scenario
         mkdir -p thumbnails
-        touch scenario/chapitre_$1.txt
+        touch scenario/chapitre_$chapterNum.txt
         #mkdir -p script
         #mkdir -p storyboard
         mkdir -p release
         #mkdir -p svg/png
 
-        cd ..
+        cd ../..
         seriesName=$(basename "$PWD")
-        cd -
+        cd - > /dev/null
         cd kra
-        exec populate.sh $pageNum &
+        exec populate.sh $pageNum "$seriesName"&
         #cd ../svg
         #exec populate.sh $pageNum &
         cd ../..
