@@ -6,11 +6,18 @@ fi
 echo incrementing $increment
 folderName=${PWD##}
 cd ..
-chapterNum=$(echo ${PWD##} | grep -P '\d+$' -o)
+chapterNum=$(echo ${PWD##} | grep -P '\d+' -o)
 cd "$folderName"
 
+cd ../../..
+seriesName=$(basename "$PWD")
+cd - > /dev/null
+
+echo "seriesName: " $seriesName
 echo "folderName: " $folderName
 echo "chapterNum: " $chapterNum
+
+
 
 find *.jpg |
 while read filename
@@ -21,7 +28,8 @@ do
         then
             pageNum="0$pageNum"
             echo "pageNum: " $pageNum
-    fi  
-echo "mv " $filename " waste_c$chapterNum"_"p$pageNum.jpg"
-    mv $filename "waste_c$chapterNum"_"p$pageNum.jpg"
+    fi
+    echo "mv " $filename " $seriesName"_"c$chapterNum"_"p$pageNum.jpg"
+    mv $filename "$seriesName"_"c$chapterNum"_"p$pageNum.jpg"
+
 done
