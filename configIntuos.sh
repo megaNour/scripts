@@ -5,8 +5,8 @@ else
     screen="DVI-0"
 fi
 
-export intuosStylus=11 #'Wacom Intuos5 touch M Pen stylus'
-export intuosEraser=12 #'Wacom Intuos5 touch M Pen eraser'
+export intuosStylus=$(xsetwacom --list devices | grep -oP "(?<=stylus\sid:\s)[0-9]+")
+export intuosEraser=$(xsetwacom --list devices | grep -oP "(?<=eraser\sid:\s)[0-9]+")
 
 #export intuosTouch='Wacom Intuos5 touch M Finger touch'
 export intuosPad=20 #'Wacom Intuos5 touch M Pad pad'
