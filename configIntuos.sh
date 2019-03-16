@@ -8,12 +8,13 @@ fi
 export intuosStylus=$(xsetwacom --list devices | grep -oP "(?<=stylus\sid:\s)[0-9]+")
 export intuosEraser=$(xsetwacom --list devices | grep -oP "(?<=eraser\sid:\s)[0-9]+")
 
-#export intuosTouch='Wacom Intuos5 touch M Finger touch'
+export intuosTouch='Wacom Intuos5 touch M Finger touch'
 export intuosPad=20 #'Wacom Intuos5 touch M Pad pad'
 #export intuosCursor='Wacom Intuos5 touch M Pen cursor'
 
 xsetwacom set "$intuosStylus" Button 2 'key b'
 xsetwacom set "$intuosStylus" Button 3 3
+xsetwacom set "$intuosTouch" Touch off
 #3 = click milieu
 #2 = click droit
 #1 = click gauche
